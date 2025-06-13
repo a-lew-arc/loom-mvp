@@ -154,7 +154,7 @@ export default function LoomMVP() {
       ) : (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
           <h2 className="text-2xl font-semibold mb-2">LOOM Blueprint for {form.client}</h2>
-          <p className="mb-1 text-sm italic">You’re looking at a blueprint, not a brief.</p>
+          <p className="mb-1 text-sm italic">You are looking at a blueprint, not a brief.</p>
           <p className="mb-2"><strong>Industry:</strong> {form.industry}</p>
           <p className="mb-2"><strong>Ask:</strong> {form.ask}</p>
           <div className="mb-4">
@@ -213,7 +213,7 @@ export default function LoomMVP() {
           )}
 
           <h3 className="text-xl font-semibold mb-2">Next Steps</h3>
-          <p className="mb-2">You’re one step ahead. Here’s what to do next:</p>
+          <p className="mb-2">You are one step ahead. Here is what to do next:</p>
           <div className="flex space-x-2">
             <button onClick={handleLoveIt} className="bg-black text-white px-3 py-2">I love this!</button>
             <button onClick={handleIntrigued} className="bg-gray-200 px-3 py-2">Not sure, but I’m intrigued</button>
