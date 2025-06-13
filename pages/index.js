@@ -107,7 +107,7 @@ export default function LoomMVP() {
         <div>
           {step === 0 && (
             <div>
-              <p className="mb-2">You’re looking at a blueprint, not a brief.</p>
+              <p className="mb-2">You are looking at a blueprint, not a brief.</p>
               <input placeholder="Client" value={form.client} onChange={e => update('client', e.target.value)} className="border p-2 mb-2 w-full" />
               <input placeholder="Industry" value={form.industry} onChange={e => update('industry', e.target.value)} className="border p-2 mb-2 w-full" />
               <textarea placeholder="Description" value={form.description} onChange={e => update('description', e.target.value)} className="border p-2 mb-2 w-full h-24" />
