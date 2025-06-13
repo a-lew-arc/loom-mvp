@@ -85,7 +85,7 @@ export default function LoomMVP() {
     setComplete(true);
   };
 
-  const handleLoveIt = () => alert("Great! We'll save this blueprint and follow up shortly.");
+  const handleLoveIt = () => alert("Great! We will save this blueprint and follow up shortly.");
   const handleIntrigued = () => {
     alert("No problem! You can adjust your inputs or refine your blueprint.");
     setStep(1);
@@ -173,7 +173,7 @@ export default function LoomMVP() {
           </div>
 
           <h3 className="text-xl font-semibold mb-2">Core Case Studies</h3>
-          <p className="mb-2">Explore our success stories that showcase our expertise in action, giving you a glimpse of what's possible for your project.</p>
+          <p className="mb-2">Explore our success stories that showcase our expertise in action, giving you a glimpse of what is possible for your project.</p>
           <div className="grid grid-cols-2 gap-4 mb-4">
             {cases
               .filter(c => c.tags.some(tag => form.selectedSubServices.includes(tag)))
