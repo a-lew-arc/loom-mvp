@@ -2,7 +2,7 @@
 import { getSheetData } from '../../lib/sheets';
 
 export default async function handler(req, res) {
-  const sheetId = '1FvuWgmK4H3qxmgDEtoXbHL1JBYdc4Wi1vjM2Mj_UpfA';
+  const sheetId = '1AeQ2_IRFF0xj5FUy1kXR_MZVQh-OtuiAj8T2nPxwokQ';
   const sheetRange = 'Cases!A:Z';  // "Cases" tab, columns A to Z
 
   try {
