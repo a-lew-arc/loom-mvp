@@ -1,11 +1,20 @@
+// pages/api/generate.js
 import { OpenAI } from 'openai';
 
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
+  apiKey: process.env.OPENAI_API_KEY, // Must be set in Vercel project settings
 });
 
 export default async function handler(req, res) {
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method not allowed' });
+  }
+
   const { ask, industry, services } = req.body;
+
+  if (!ask || !industry || !services) {
+    return res.status(400).json({ error: 'Missing required fields' });
+  }
 
   const prompt = `
 You're an expert strategist at a top communications firm.
@@ -34,7 +43,7 @@ Generate 6 unique, helpful thought starters that could shape a campaign, narrati
 
     res.status(200).json({ ideas });
   } catch (err) {
-    console.error(err);
+    console.error('OpenAI error:', err);
     res.status(500).json({ ideas: [`Error generating ideas: ${err.message}`] });
   }
 }

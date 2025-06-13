@@ -1,16 +1,22 @@
-// loadTeams.js
-import { getSheetData } from './sheets';
+// pages/api/teams.js
+import { getSheetData } from '../../lib/sheets';
 
-export async function loadTeams() {
-  const sheetId = '1FvuWgmK4H3qxmgDEtoXbHL1JBYdc4Wi1vjM2Mj_UpfA'; // Your shared Google Sheet ID
-  const sheetGid = '1166101006'; // GID for the "Teams" tab
-  const rows = await getSheetData(sheetId, sheetGid);
-  const data = rows.map(row => ({
-    name: row.name || '',
-    title: row.title || '',
-    tags: row.tags ? row.tags.split(',').map(tag => tag.trim()) : [],
-    capacity: row.capacity || '',
-    location: row.location || '',
-  }));
-  res.status(200).json(data);
+export default async function handler(req, res) {
+  const sheetId = '1FvuWgmK4H3qxmgDEtoXbHL1JBYdc4Wi1vjM2Mj_UpfA';
+  const sheetGid = '1166101006';
+
+  try {
+    const rows = await getSheetData(sheetId, sheetGid);
+    const data = rows.map(row => ({
+      name: row.name || '',
+      title: row.title || '',
+      tags: row.tags ? row.tags.split(',').map(tag => tag.trim()) : [],
+      capacity: row.capacity || '',
+      location: row.location || '',
+    }));
+    res.status(200).json(data);
+  } catch (err) {
+    console.error('Error loading teams:', err);
+    res.status(500).json({ error: 'Failed to load team data' });
+  }
 }
