@@ -3,7 +3,7 @@ import { getSheetData } from '../../lib/sheets';
 
 export default async function handler(req, res) {
   const sheetId = '1FvuWgmK4H3qxmgDEtoXbHL1JBYdc4Wi1vjM2Mj_UpfA';
-  const sheetGid = 'Teams!A:Z';
+  const sheetGid = 'Team!A:Z';
 
   try {
     const rows = await getSheetData(sheetId, sheetRange);
