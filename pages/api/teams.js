@@ -3,10 +3,10 @@ import { getSheetData } from '../../lib/sheets';
 
 export default async function handler(req, res) {
   const sheetId = '1FvuWgmK4H3qxmgDEtoXbHL1JBYdc4Wi1vjM2Mj_UpfA';
-  const sheetGid = '1166101006';
+  const sheetGid = 'Teams!A:Z';
 
   try {
-    const rows = await getSheetData(sheetId, sheetGid);
+    const rows = await getSheetData(sheetId, sheetRange);
     const data = rows.map(row => ({
       name: row.name || '',
       title: row.title || '',
