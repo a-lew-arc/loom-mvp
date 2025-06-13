@@ -2,7 +2,7 @@
 import { getSheetData } from '../../lib/sheets';
 
 export default async function handler(req, res) {
-  const sheetId = '1FvuWgmK4H3qxmgDEtoXbHL1JBYdc4WiivjM2Mj_UpfA';
+  const sheetId = '1FvuWgmK4H3qxmgDEtoXbHL1JBYdc4Wi1vjM2Mj_UpfA';
   const sheetRange = 'Team!A:Z'; // exact tab name + column range
 
   try {
