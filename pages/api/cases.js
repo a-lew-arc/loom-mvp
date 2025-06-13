@@ -6,7 +6,7 @@ export default async function handler(req, res) {
   const sheetGid = 'Cases!A:Z';
 
   try {
-    const rows = await getSheetData(sheetId, sheetGid);
+    const rows = await getSheetData(sheetId, sheetRange);
     const data = rows.map(row => ({
       client: row.client || '',
       type: row.type || '',
