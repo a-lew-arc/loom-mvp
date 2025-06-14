@@ -1,18 +1,14 @@
-// pages/api/teams.js
-import { getSheetData } from '../../lib/sheets';
+import { fetchAirtableRecords } from '../../lib/airtable';
 
 export default async function handler(req, res) {
-  const sheetId = '1AeQ2_IRFF0xj5FUy1kXR_MZVQh-OtuiAj8T2nPxwokQ';
-  const sheetRange = 'Team!A:Z';  // "Team" tab, columns A to Z
-
   try {
-    const rows = await getSheetData(sheetId, sheetRange);
-    const data = rows.map(row => ({
+    const records = await fetchAirtableRecords('Teams');
+    const data = records.map(row => ({
       name: row.name || '',
       title: row.title || '',
-      tags: row.tags ? row.tags.split(',').map(tag => tag.trim()) : [],
+      tags: row.tags || [],
       capacity: row.capacity || '',
-      location: row.location || '',
+      location: row.location || ''
     }));
     res.status(200).json(data);
   } catch (err) {

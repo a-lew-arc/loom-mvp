@@ -1,17 +1,13 @@
-// pages/api/cases.js
-import { getSheetData } from '../../lib/sheets';
+import { fetchAirtableRecords } from '../../lib/airtable';
 
 export default async function handler(req, res) {
-  const sheetId = '1AeQ2_IRFF0xj5FUy1kXR_MZVQh-OtuiAj8T2nPxwokQ';
-  const sheetRange = 'Cases!A:Z';  // "Cases" tab, columns A to Z
-
   try {
-    const rows = await getSheetData(sheetId, sheetRange);
-    const data = rows.map(row => ({
+    const records = await fetchAirtableRecords('Cases');
+    const data = records.map(row => ({
       client: row.client || '',
       type: row.type || '',
       result: row.result || '',
-      tags: row.tags ? row.tags.split(',').map(tag => tag.trim()) : [],
+      tags: row.tags || [],
     }));
     res.status(200).json(data);
   } catch (err) {
