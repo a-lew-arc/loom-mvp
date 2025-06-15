@@ -126,7 +126,7 @@ export default function LoomMVP() {
                       <button
                         key={s}
                         onClick={() => toggleSubService(s)}
-                        className={`border px-3 py-1 m-1 rounded ${form.selectedSubServices.includes(s) ? 'bg-black text-white' : ''}`}
+                        className={`border px-3 py-1 m-1 rounded-full ${form.selectedSubServices.includes(s) ? 'bg-black text-white' : ''}`}
                       >
                         {s}
                       </button>
