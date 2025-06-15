@@ -136,7 +136,7 @@ export default function LoomMVP() {
               ))}
               <div className="mt-4">
                 <button onClick={prev} className="mr-2 border px-4 py-2">Back</button>
-                <button onClick={generate} className="bg-green-600 text-white px-4 py-2">Generate Blueprint</button>
+                <button onClick={generate} className="bg-[#6b528a] text-white px-4 py-2">Generate Blueprint</button>
               </div>
             </div>
           )}
