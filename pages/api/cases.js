@@ -4,7 +4,7 @@ export default async function handler(req, res) {
   try {
     const records = await fetchAirtableRecords('Cases');
     const data = records.map(row => ({
-      client: typeof row.client === 'object' ? row.client.name || '' : row.client || '',
+      client: Array.isArray(row.clients) ? row.clients[0]?.name || '' : row.clients?.name || row.clients || '',
       type: row.type || '',
       result: row.result || '',
       tags: row.tags || [],
